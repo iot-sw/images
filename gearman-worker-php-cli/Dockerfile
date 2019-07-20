@@ -5,8 +5,12 @@ COPY pdo_mysql.ini /usr/local/etc/php/conf.d/pdo_mysql.ini
 COPY pdo_mysql.so /usr/local/lib/php/extensions/no-debug-non-zts-20131226/pdo_mysql.so
 
 # 添加 PHPUNIT
-COPY phpunit-5.7.phar /user/local/sbin/phpunit
+COPY phpunit-5.7.phar /usr/local/sbin/phpunit
 
+# 添加代码规范检查工具 phpcs
+COPY phpcs-3.4.2.phar /usr/local/sbin/phpcs
+# 添加自动化代码修正工具 phpcbf
+COPY phpcbf-3.4.2.phar /usr/local/sbin/phpcbf
 
 COPY gearmand/gearmand-1.1.17.tar.gz /tmp/
 COPY gearmand/patches/libhashkit-common.h.patch /tmp/
