@@ -1,8 +1,12 @@
 FROM php:5.6.40-cli-alpine3.8
 
-# I. 添加 PDO MySql Driver 实现
+# 添加 PDO MySql Driver 实现
 COPY pdo_mysql.ini /usr/local/etc/php/conf.d/pdo_mysql.ini
 COPY pdo_mysql.so /usr/local/lib/php/extensions/no-debug-non-zts-20131226/pdo_mysql.so
+
+# 添加 PHPUNIT
+COPY phpunit-5.7.phar /user/local/sbin/phpunit
+
 
 COPY gearmand/gearmand-1.1.17.tar.gz /tmp/
 COPY gearmand/patches/libhashkit-common.h.patch /tmp/
