@@ -76,3 +76,5 @@ RUN mkdir -p /data/worker \
   && mkdir -p /data/log \
   && chown -R www-data:www-data /data \
   && chmod -R 777 /data
+
+VOLUME ["/data/worker", "/data/log"]
