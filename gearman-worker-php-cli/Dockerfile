@@ -28,12 +28,16 @@ RUN apk update  \
         libevent-dev \
         util-linux-dev \
         hiredis-dev \
+        yaml-dev \
         libressl-dev \
         autoconf \
         re2c \
   # Redis PECL
   && printf "\n" | pecl install redis-4.3.0 \
   && docker-php-ext-enable redis \
+  # YAML PECL
+  && pecl install yaml-1.3.2 \
+  && docker-php-ext-enable yaml \
   # Gearmand and libgearman
   && cd /tmp  \
   && tar xfz gearmand-1.1.17.tar.gz  \
@@ -68,6 +72,7 @@ RUN apk update  \
           libevent \
           libuuid \
           libstdc++ \
+          yaml \
           make
 
 
